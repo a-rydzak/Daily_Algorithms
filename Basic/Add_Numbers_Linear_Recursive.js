@@ -20,7 +20,7 @@ sum_except(6, 2)
 
 
 // Add All Numbers Except the Exception Number accomplished recursively. EX: Add 6..1 except 2 = 19
-// The "This Works" below demonstrates that the except is not being registered as an int of 2 for some reason
+
 function rSum_except(n, except){
 	// console.log(except, "1")
 	if(n===1){
@@ -29,10 +29,10 @@ function rSum_except(n, except){
 	// console.log(except, "2")
 	if((n-1) == except){
 			// console.log(except, "3")
-			return rSum_except(n-2)+n
+			return rSum_except(n-2, except)+n
 		}
 	else{
-		return rSum_except(n-1)+n
+		return rSum_except(n-1, except)+n
 	}
 }
 
