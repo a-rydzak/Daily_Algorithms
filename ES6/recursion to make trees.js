@@ -28,7 +28,7 @@ let makeTree=(activities, parent) => {
 		.filter(a => a.parent === parent)
 		// .forEach(a =>  node[a.id] = makeTree(activities, a.id))
 		.forEach(function(a){ 
-			// node['calories']=a.calories
+			node['calories']=a.calories
 			node[a.id] = makeTree(activities, a.id)
 		}
 		)
