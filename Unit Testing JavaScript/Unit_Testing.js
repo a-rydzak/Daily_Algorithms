@@ -65,7 +65,7 @@ function orderTotal(order){
 
 //---------------------------------------------Now Pass Both Tests
 
-if (orderTotal({ 
+if (orderTotal({ //keept tests small and direct
 	items:[
 		{name: 'Cat Food', price: 8},
 		{name: 'Cat Cage', price: 8}
@@ -102,6 +102,8 @@ function orderTotal(order){
 	// return order.items.reduce(function(sum, current){ return (sum + current.price)}, 0)
 	return order.items.reduce((sum, current) => sum + current.price, 0)
 }	
+
+// this was triangulation, red, green, red, green, red, green
 
 
 
