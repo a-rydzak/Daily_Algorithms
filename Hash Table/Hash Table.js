@@ -9,6 +9,14 @@ var hash = (string, max) => {
 	return hash % max
 }
 
+class Node{
+	constructor(key, value){
+		this.key=key
+		this.value=value
+		this.next=null
+	}
+
+}
 
 class HashTable {
 	constructor(){
@@ -17,24 +25,23 @@ class HashTable {
 		this.items=0
 	}
 
-	add(key, value){
-		this.items++
+	add(key, value2){
 		let index=hash(key, this.storage_limit)
 		if(this.storage[index]===undefined){
-			this.storage[index]=[key, value]
-			console.log( this.storage)
+			this.storage[index]= new Node(key, value)
 		}
 		else{
-			let inserted = false
-			for(let i =0; i< this.storage[index].length; i++){
-				if(this.storage[index][i][0]===key){
-					storage[index][i][1]=value
-					inserted= true
+			let changed=false
+			let current_node=this.storage[index]
+			while(current_node.next){
+				if(current_node.key==key){
+					current_node.value=value
+					console.log('Happening')
+					return this
 				}
+				current_node=current_node.next
 			}
-			if(inserted===false){
-				this.storage[index].push([key,value])
-			}
+			current_node.next= new Node(key, value)
 		}
 		return this
 	}
@@ -42,4 +49,4 @@ class HashTable {
 
 let hash_table = new HashTable
 
-hash_table.add("andy","person").add("billy June","person").add('killer croc', 'alliogatoritomis')
+hash_table.add("andy","person").add("andy","chicken")
