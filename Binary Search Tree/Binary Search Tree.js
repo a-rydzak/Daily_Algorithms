@@ -59,10 +59,10 @@ class Tree{
 		console.log('Node Not Found in this tree seen below')
 		return this
 	}
-	// pop(value){
-	// 	let current_node = this.find(value)
-	// 	let 
-	// }
+	pop(value){
+		let current_node = this.find(value)
+		let 
+	}
 }
 
 let tree = new Tree()
