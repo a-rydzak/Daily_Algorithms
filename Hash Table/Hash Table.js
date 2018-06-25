@@ -122,7 +122,7 @@ class HashTable {
             }
             if(current_node.key==key && current_node.value == value){
             	previous_node.next=current_node.next
-            	console.log(current_node,'wasd removed')
+            	console.log(current_node,'was removed')
             	current_node=null
             	return this
             }
@@ -134,4 +134,4 @@ class HashTable {
 
 let hash_table = new HashTable(5)
 
-hash_table.add("andy", "person").add("drew", "chicken").remove("drew", "chicken")
+hash_table.add("andy", "person").add("drew", "chicken").find("drew", "chicken").remove("drew", "chicken")
