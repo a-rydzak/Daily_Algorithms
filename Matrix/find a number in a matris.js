@@ -14,16 +14,21 @@ const M =[[1,2,3],
 	    [7,9,4]
 ]
  
+ 
 if (find(2, M) !== true){
-	throw new Error('Check Fail')
+	throw new Error('Check Fail 1')
 }
 
 if (find(10, M) !== false){
 	throw new Error('Check Fail 2')
 }
 
-if (find(10, M) !== false){
-	throw new Error('Check Fail 2')
+if (find(0, M) !== false){
+	throw new Error('Check Fail 3')
+}
+
+if (find(9, M) !== true){
+	throw new Error('Check Fail 4')
 }
 
 
