@@ -27,3 +27,24 @@ var server = http.createServer(function (request, response){
 server.listen(6789);
 // print to terminal window
 console.log("Running in localhost at port 6789");
+
+
+// Serving an image
+  // else if(request.url === '/images/pizza.jpg'){
+  //   // notice we won't include the utf8 encoding
+  //   fs.readFile('./images/pizza.jpg', function(errors, contents){
+  //       response.writeHead(200, {'Content-type': 'image/jpg'});
+  //       response.write(contents);
+  //       response.end();
+  //   })
+  // }
+
+  //Serving CSS
+
+  //   else if(request.url === '/stylesheets/style.css'){
+  //   fs.readFile('./stylesheets/style.css', 'utf8', function(errors, contents){
+  //    response.writeHead(200, {'Content-type': 'text/css'copy});
+  //    response.write(contents);
+  //    response.end();
+  //   })
+  // }
