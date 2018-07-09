@@ -1,4 +1,5 @@
 const express = require ('express')
+const Joi = require('joi')
 const app =express()
 
 app.use(express.json()) //Middleware that parses json data
@@ -26,9 +27,15 @@ app.get('/api/courses/:id', (req,res) => {
 //Tested this using Postman (POST, from BODY, using RAW, JSON type)
 
 app.post('/api/courses', (req,res)=> {
-	if(!req.body.name || req.body.name.length <3){
-		res.status(404).send('Name is required and  minimum of 3 characters')
+	const { error } = validateCourse(req.body)
+
+	if(error){
+		res.status(400).send(error.details[0].message);
+		return
 	}
+	// if(!req.body.name || req.body.name.length <3){
+	// 	res.status(404).send('Name is required and  minimum of 3 characters')
+	// }
 	const course = {
 		id: courses.length +1,
 		name: req.body.name
@@ -36,6 +43,30 @@ app.post('/api/courses', (req,res)=> {
 	courses.push(course)
 	res.send(course)
 })
+
+app.put('/api/courses/:id', (req,res) =>{
+
+	const course =courses.find(c => c.id === parseInt(req.params.id))
+	if(!course) res.status(404).send('The course was not found')
+	
+	// const result = validateCourse(req.body)
+	const { error } = validateCourse(req.body)
+
+	if(error){
+		res.status(400).send(error.details[0].message);
+		return
+	}
+
+	course.name=req.body.name
+	res.send(course)
+})
+
+function validateCourse(course){
+	const schema={
+		name: Joi.string().min(3).required()
+	}
+	return Joi.validate(course, schema)
+}
 
 
 //http://localhost:3000/api/posts/2018/1?sortBy=name, query string paramter for optional paramater
