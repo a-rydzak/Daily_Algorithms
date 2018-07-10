@@ -1,0 +1,67 @@
+---------------------------------- Starting fresh
+
+npm init -y
+
+npm install -g nodemon --save
+npm install express --save
+npm install ejs --save
+npm install body-parser --save
+npm install express-session --save
+npm install express-path --save
+npm install socket.io --save
+
+
+Now you can delete your modules and relaod them with  npm install
+
+--------------setup for mongoose
+
+
+npm init -y
+npm install express --save
+npm install ejs --save
+npm install body-parser --save
+npm install mongoose --save
+npm install -g nodemon --save
+npm install express-session --save
+npm install express-path --save
+npm install mongoose --save
+
+---------------------Angular
+
+npm install -g @angular/cli
+ng new myFirstAngularApp
+
+-------inside myFirstAngularApp run 
+
+ng build --watch
+
+-----HTML, CSS is in
+
+C:\Users\BroBoFett\Desktop\1955_API_Angular\myFirstAngularApp\src\app
+
+the .ts file is the controller
+the html and cs is the view
+
+-----the service is the model-talks to the server, sever talks to database, the server uses ajax
+
+-- make a service with a name http
+
+ng g s http
+
+ng new client
+
+----additional Notes
+	1. crette, ng g s http
+	2. Register app.module.ts
+		[providers]
+	3. HttpClient 
+		app.mudule.ts
+		import [imports]
+	4. Dependency injection
+
+
+-------------------Making components
+
+ng generate component component_name
+ng generate component task
+		

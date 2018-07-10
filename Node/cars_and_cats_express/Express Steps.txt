@@ -1,0 +1,14 @@
+-npm install -g nodemon
+
+-npm install -g nodemon@1.10.0
+
+-nodemon app.js
+
+
+nodemon app.js--to keep a application running on change
+node app.js 
+npm install express----to run express/install
+
+nodemon server.js
+
+npm install ejs

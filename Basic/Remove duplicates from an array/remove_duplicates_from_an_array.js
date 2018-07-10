@@ -8,6 +8,7 @@ if (dublicate_verification([1,2,2,3]) === true)(console.log("Check 5 Has Failed"
 if(are_arrays_equal(remove_duplicates([1,2,3,4,4]), [1,2,3,4]) != true ){console.log("Check 6 Has Failed")}
 if(are_arrays_equal(remove_duplicates([1,2,3]), [1,2,3]) != true ){console.log("Check 7 Has Failed")}
 if(are_arrays_equal(remove_duplicates([7,2,3,4,5,6,7]), [2,3,4,5,6,7]) != true ){console.log("Check 8 Has Failed")}
+	if(are_arrays_equal(remove_duplicates([7,7,7,2,3,4,5,7,6,7]), [2,3,4,5,6,7]) != true ){console.log("Check 9 Has Failed")}
 
 var array_index
 

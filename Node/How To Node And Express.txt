@@ -1,0 +1,132 @@
+--npm init -y
+
+--Install Nodemon after Node 
+	nodemon. Using nodemon instead of the node command in 
+	your terminal will automatically re-run your JavaScript file or 
+	project whenever you save something. That means no more manual server restarts!
+
+	--$ npm install -g nodemon (may require sudo)
+
+--To manage our front-end dependencies, we'll be using another 
+	package manager called bower. This will save us from having to hunt 
+	down the perfect CDN for important libraries like jQuery and Bootstrap.
+	
+	--$ npm install -g bower (may require sudo)
+	--$ bower install jquery (MAKE )
+	--$ npm install jquery
+
+--you can always uninstall packages using npm uninstall
+
+
+--FS and HTTP
+	--to read and write files you need hat is why the creators of Node.js 
+	built the fs (file system) module.and it is by default included in Node.js
+
+	--The HTTP module is the module that allows us to build a web server that 
+	accepts HTTP requests and can serve responses
+
+--
+	if(request.url === '/') {
+        	fs.readFile('index.html', 'utf8', function (errors, contents){
+           	 response.writeHead(200, {'Content-Type': 'text/html'});
+            	response.write(contents); 
+            	response.end();
+        	});
+   	 }
+
+	HTML		{'Content-Type': 'text/html'}
+	CSS		{'Content-Type': 'text/css'}
+	Javascript	{'Content-Type': 'text/javascript'}
+	png/jpeg/gif	{'Content-Type': 'image/*'} (* is the image format, ie png or jpeg etc)
+
+
+--EXPRESS (is a framework built in Javascript using Node.js as the server component)
+
+	--npm install express --save 
+
+
+--Updateing templates in express Using Templates (EJS)
+
+	--EJS is the templating engine we are going to use. EJS stands 
+	for Embedded Javascript. Just like express, ejs is a node module that we 
+	will need to install for our project. 
+
+	--npm install ejs --save 
+
+
+app.get("/users", function (request, response){
+    // hard-coded user data
+    var users_array = [
+        {name: "Michael", email: "michael@codingdojo.com"}, 
+        {name: "Jay", email: "jay@codingdojo.com"}, 
+        {name: "Brendan", email: "brendan@codingdojo.com"}, 
+        {name: "Andrew", email: "andrew@codingdojo.com"}
+    ];
+    response.render('users', {users: users_array});
+})
+
+<html>
+<body>
+    <h2>Here are all the users:</h2>
+    <% for (var x in users) { %>
+        <h3>Name: <%= users[x].name %></h3>
+        <h4>Email: <%= users[x].email %></h4>
+        <hr>
+    <% } %>
+</body>
+</html>
+
+
+
+--GET vs. POST
+	--GET is used for passing insensitive information 
+	POST is used for passing sensitive information.  
+
+
+--npm install express-session
+
+---------------------------------------All the Top Points So Far
+Node.js
+This will be a constant across the vast majority of the MEAN stack. 
+You will almost always be running a Node server or app of some kind. 
+This will act as your server and back-end Javascript interpreter.
+
+Express
+Technically a Node module, but let's talk about it here too since 
+it gets it's own letter in the acronym! Express is a wonderful set 
+of tools that help us write rules for incoming HTTP requests. 
+Express is arguably the most useful Node module in your collection, 
+and only rarely will we not use it.
+
+node_modules:
+EJS
+Embedded Javascript is the templating engine we will use to render our 
+views. When using EJS, your node server will take the .ejs file you 
+wrote, parse through it, resolve all of the Javascript in the file, 
+and then send a 'rendered' HTML page to the client. This is extra 
+computation that the server will be required to do, and later we'll r
+eplace EJS with a full front end framework like Angular.
+
+Express
+Like we said before, express is super useful for 
+managing incoming requests!
+
+body-parser
+Guess what body-parser is used for? Parsing the body! 
+We'll use this piece of middleware to parse information out of 
+HTTP requests made to our server. Body-parser is incredibly flexible, 
+and will be used to not only pull POST data out of requests, but can 
+also snag data encoded into URLs via GET requests, and later you'll use 
+body-parser to pull raw JSON.
+
+socket.io
+This node module will enable you to use web sockets within your application,
+ we'll get into it more later. You will use socket.io for just this chapter!
+
+package.json
+You can use this package.json as a guide, but we strongly 
+recommend using npm to bring in your Node modules for 
+every project you make. Typing npm install express --save will 
+make sure you get the newest version of express!
+
+{

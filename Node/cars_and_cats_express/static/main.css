@@ -1,0 +1,9 @@
+#test{
+	border:solid;
+	border-color: red;
+}
+img{
+	max-width: 200px;
+	max-height: 200px;
+	display: inline-block;
+}
