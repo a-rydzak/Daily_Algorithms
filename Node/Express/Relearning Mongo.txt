@@ -1,0 +1,103 @@
+---Start MongoDB Server: Navigate to your Mongo folder and execute the mongod.exe file.
+---Open Mongo Terminal: Navigate to your Mongo folder and execute the mongo.exe file.
+
+
+							SQL	         Mongo
+Database			                       Schema	       	Database (db)
+Collection of related	records			       Tables	        Collections
+Each one record in the collection of records	    Row / Record	Document
+
+
+
+--------------------Databases are Schemas
+
+------Show All Databases
+show dbs
+
+-------Show Current Database
+db
+
+------Select / Change Databases to use
+use DB_NAME
+use message_board_db
+
+------Delete A Database 
+
+use message_board_db
+db.dropDatabase()
+
+
+-------------------Collections Are Tables
+
+------Show all Collections
+show collections
+
+------Create a Collection In a Database
+
+Pattern:
+db.createCollection("COLLECTION_NAME")
+
+Example:
+db.createCollection("ninjas")
+
+------Destroy A Collection
+
+Pattern:
+db.COLLECTION_NAME.drop()
+
+Example:
+db.ninjas.drop()
+
+------------------Inserting Documents/Table Entries
+
+// Pattern:
+db.COLLECTION_NAME.insert({YOUR_JSON_DOCUMENT})  
+ 
+// Example:
+db.ninjas.insert({name: "Trey", belt: "black", status: "awesome"})
+
+------------------------------------Retrieving a document
+
+// Pattern: 
+db.COLLECTION_NAME.find({YOUR_QUERY_DOCUMENT})
+
+
+---find all()
+db.ninjas.find() or db.ninjas.find({})
+
+db.ninjas.find().pretty() to make it pretty
+
+
+---Find By ID
+db.ninjas.find({_id: ObjectId("5b466c471833b8d3452a81dd")}).pretty()
+
+
+---Removing documents from a collection
+
+db.ninjas.remove({belt: "Red"})
+
+---Update A collection
+
+db.ninjas.update({name: "Trey"}, {location: "Mountain View"}) ---this will overwite everything
+								 so that only the location is there
+
+---Update Without Overwrite
+
+db.ninjas.update({name: "Trey"}, {$set: {location: "Mountain View"}})
+
+
+
+------------------------------------Operators in Searches
+
+db.dojos.find({number_of_students: {$gt: 15}})
+
+$gt (greater than)	Use to query selectively on numerical-valued fields
+$gte (greater than or equal to)	Use to query selectively on numerical-valued fields
+$lt (less than)	Use to query selectively on numerical-valued fields
+$lte (less than or equal to)	Use to query selectively on numerical-valued fields
+$in (in array)	Use to find documents who have a particular value within an array
+
+
+-----Update into an array of a record
+
+db.students.update({_id: ObjectId("5463d871a6a96d5ed6252f4d")}, {$push: {interests: 'snowboarding'}})
