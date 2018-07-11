@@ -1,3 +1,41 @@
-<form >
-	
-</form>
+
+
+
+
+
+<html>
+<head>
+    <title>Sockets</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+ 	<script type ="text/javascript">
+    	$(document).ready(function (){
+    
+            var socket = io(); //1
+
+        $('#form').submit((e) => {
+			e.preventDefault();
+			// put form data into an array
+			let formData ={Name: $('#Name').val(), Email: $('#Email').val()} ;
+			// send form data to server
+			socket.emit('send_form_data', formData);
+		});
+
+		socket.on('res_form_data', function (formData) { 
+            console.log(formData); //5
+            document.getElementById("socket").innerHTML ="Welcome " + formData.Name+ ' at ' + formData.Email;
+                
+        });
+     })</script>
+</head>
+<body>
+    <h1>Fun with sockets</h1>
+	<form id='form'  method='post'> <!--action='/post_user' -->
+	    	 Name: <input id='Name' type='text' name='name'>
+	   		 Email: <input id='Email' type='text' name='email'>
+	    <input type='submit' value='create user'>
+	</form>
+
+	<h1 id='socket'></h1>
+</body>
+</html>
