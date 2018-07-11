@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+
+    	$(document).ready(function (){
+    
+            var socket = io(); //1
+
+        $('#form').submit((e) => {
+			e.preventDefault();
+			// put form data into an arra
+			let formData = $('#message').val();
+			// let formData ={message: '<%= name %>' +': ' + $('#message').val()} ;
+			// send form data to server
+			console.log(formData)
+			socket.emit('get_message', formData);
+		});
+
+        socket.on('start_chat', function (messages) { 
+			for(var i=0; i<messages.length;i++){
+				$("#chat_box").append("<li>"+messages[i]+"</li>");
+			}
+        });
+
+		socket.on('message_update', function (new_message) { 
+			console.log(new_message);
+            $("#chat_box").append("<li>"+new_message+"</li>");
+        });
+
+
+         })</script>
+	<title>Survey</title>
+</head>
+<body>
+	<h1>Welcome <%= name %>!</h1>
+	<ul id='chat_box'></ul>
+
+	<form id='form' action='get_info' method="POST">
+		<input type="input" name="message" id='message'>
+		<input type="submit" name="Add To Chat">
+	</form>
+	
+</body>
+</html>
