@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Specific Mongoose</title>
+</head>
+<body>
+
+    <form action='edit/<%= mongoose[0]._id %> ' method='post'>
+		<input type="text" name="first_name" placeholder="<%= mongoose[0].first_name %>">
+		<input type="text" name="last_name" placeholder="<%= mongoose[0].last_name %>">
+		<input type="text" name="email" placeholder="<%= mongoose[0].email %>">
+		<input type="number" name="age" placeholder="<%= mongoose[0].age %>">
+		<input type="submit" name="Edit Mongoose">
+	</form>
+
+	<form action='destroy/<%= mongoose[0]._id %>' method='post'>
+		<input type="submit" value='Destroy This Terrible Mongoose' name="">
+	</form>
+</body>
+</html>				
+
+
+
+
+
+
+
+
+

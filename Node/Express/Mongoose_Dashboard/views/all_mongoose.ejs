@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<title> Quoting Dojo </title>
+	</head>
+	<body>
+			<h2> All Mongoose </h2>	
+		<main> 
+			<div id="mongoose_div">
+				<% for (let x in all_mongoose) { %>
+				<p><span> Mongoose ID:</span> <%= all_mongoose[x]._id %> </p>
+				<p><span> First Name:</span> <%= all_mongoose[x].first_name %> </p>
+				<p><span> Last Name:</span> <%= all_mongoose[x].last_name %> </p>
+				<p><span> Email:</span> <%= all_mongoose[x].email %> </p>
+				<p><span> Age:</span> <%= all_mongoose[x].age %> </p>
+				<% } %>
+			</div>
+		</main>
+	</body>
+</html>

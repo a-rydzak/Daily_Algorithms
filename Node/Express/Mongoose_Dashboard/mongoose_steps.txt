@@ -1,0 +1,25 @@
+---------------------------------- Starting fresh
+
+npm init -y
+
+npm install -g nodemon --save
+npm install express --save
+npm install ejs --save
+npm install body-parser --save
+npm install express-session --save
+npm install express-path --save
+npm install socket.io --save
+npm install mongoose --save
+
+
+Now you can delete your modules and relaod them with  npm install
+
+--------------setup for mongoose
+
+
+npm init -y
+npm install express --save
+npm install ejs --save
+npm install body-parser --save
+npm install mongoose --save
+npm install -g nodemon --save

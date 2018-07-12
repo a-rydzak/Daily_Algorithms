@@ -41,19 +41,7 @@ app.post("/login", function (req, res) {
 
 // Web Socket Starts Here
 
-var messages=[];
-io.on('connection', function (socket) { 
 
-  socket.emit('start_chat', messages); 
-  
-  socket.on('get_message', (formData) => {
-    var new_message=name +': ' +formData;
-    messages.push(new_message);
-    io.emit('message_update',new_message);
-  });
-
-
-});
 // app.get("/go_back", function (req, res) {
 //     res.redirect('/');
 // });
