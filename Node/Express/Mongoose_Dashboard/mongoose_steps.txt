@@ -10,6 +10,7 @@ npm install express-session --save
 npm install express-path --save
 npm install socket.io --save
 npm install mongoose --save
+npm install pg --save
 
 
 Now you can delete your modules and relaod them with  npm install

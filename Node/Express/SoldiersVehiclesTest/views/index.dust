@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>List Of Soldiers</title>
+</head>
+<body>
+	<h1>This is the current list</h1>
+	<table>
+	  <tr>
+	    <th>Firstname</th>
+	    <th>Lastname</th> 
+	    <th>Age</th>
+	    <th>Email</th>
+	  </tr>
+	  {#users}
+	  <tr>
+	    <td>{user_name}</td>
+	  </tr>
+	 {/users}
+	</table>
+
+</body>
+</html>

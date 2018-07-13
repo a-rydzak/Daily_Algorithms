@@ -53,7 +53,7 @@ app.post('/new', (req,res) => {
     else{
       console.log('You have successfully added a mongoose!')
       // res.redirect('/')
-      res.redirect('/mongoose')
+      res.redirect('/')
     }
   })
 })
