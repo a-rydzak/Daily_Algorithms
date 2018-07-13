@@ -40,6 +40,56 @@ app.get('/', (req,res) => {
   })
 })
 
+
+app.post('/add_soldier', (req,res) => {
+  let user_name= req.body.user_name
+  let user_email= req.body.user_email
+  let password= req.body.password
+  pool.connect( (req, client, done) => {
+    client.query("INSERT INTO users(user_name, user_email, password) VALUES($1, $2, $3)", [user_name, user_email, password], (err, result)=>{
+      if(err){
+        return console.error('error running query', err)
+      }else{
+        console.log(result.rows)
+        res.redirect('/')
+        done()
+      }
+    })
+  })
+})
+
+app.post('/delete_soldier', (req,res) => {
+  let user_name= req.body.user_name
+  pool.connect( (req, client, done) => {
+    client.query("DELETE FROM users WHERE users.user_name =$1", [user_name], (err, result)=>{
+      if(err){
+        return console.error('error running query', err)
+      }else{
+        console.log(result.rows)
+        res.redirect('/')
+        done()
+      }
+    })
+  })
+})
+
+app.post('/update_soldier', (req,res) => {
+  let orgional_name= req.body.orgional_name
+  let new_name= req.body.new_name
+  pool.connect( (req, client, done) => {
+    client.query("UPDATE users  SET user_name=$1 WHERE user_name=$2", [new_name, orgional_name], (err, result)=>{
+      if(err){
+        return console.error('error running query')
+      }else{
+        console.log(result.rows)
+        res.redirect('/')
+        done()
+      }
+    })
+  })
+})
+
+"UPDATE products SET pr_title = ($1), pr_usercode = ($2) WHERE pr_id=($3)"
   // mongoose = require('mongoose') //needed only for mongoose
 
 
