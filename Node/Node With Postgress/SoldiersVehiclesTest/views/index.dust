@@ -23,6 +23,8 @@
 		Name:     <input type="text" name="user_name">
 		Email:    <input type="text" name="user_email">
 		Password: <input type="password" name="password">
+		Age:      <input type="number" name="age">
+		Motto:    <input type="text" name="age">
 				  <input type="submit" value='Add Soldier'>
 	</form>
 
