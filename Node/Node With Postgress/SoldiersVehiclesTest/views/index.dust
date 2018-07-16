@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>List Of Soldiers</title>
+</head>
+<body>
+	<h1>This is the current list</h1>
+	<table>
+	  <tr>
+	  	<th>Name<th>
+	    <th>Email</th>
+	  </tr>
+	  {#users}
+	  <tr>
+	    <td>{user_name}</td>
+	    <td>{user_email}</td>
+	  </tr>
+	 {/users}
+	</table>
+
+<h4>Add A Soldier</h4>
+	<form action='/add_soldier' method='Post'>
+		Name:     <input type="text" name="user_name">
+		Email:    <input type="text" name="user_email">
+		Password: <input type="password" name="password">
+				  <input type="submit" value='Add Soldier'>
+	</form>
+
+
+<h4>Delete A Soldier</h4>
+	<form action='/delete_soldier' method='Post'>
+		Name:     <input type="text" name="user_name">
+				  <input type="submit" value='Delete Soldier'>
+	</form>
+
+<h4>Update A Soldier</h4>
+	<form action='/update_soldier' method='Post'>
+		Orgional Name:     <input type="text" name="orgional_name">
+		New Name		  <input type="text" name="new_name">
+				  <input type="submit" value='Update Soldier'>
+	</form>
+
+
+</body>
+</html>

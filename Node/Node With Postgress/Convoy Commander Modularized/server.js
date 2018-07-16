@@ -89,7 +89,7 @@ app.post('/update_soldier', (req,res) => {
   })
 })
 
-"UPDATE products SET pr_title = ($1), pr_usercode = ($2) WHERE pr_id=($3)"
+//"UPDATE products SET pr_title = ($1), pr_usercode = ($2) WHERE pr_id=($3)"
   // mongoose = require('mongoose') //needed only for mongoose
 
 
