@@ -5,9 +5,20 @@ path = require('path')
 cons = require('consolidate')
 dust = require('dustjs-helpers')
 pg = require('pg')
+ejs = require('ejs')
 Sequelize = require('sequelize')
 
+//-------------------------------Assign dust engine to dust files
+// app.engine('ejs', cons.ejs)
+app.set('view engine', 'ejs')
+app.set('views', __dirname + '/views')
 
+app.use(express.static(path.join(__dirname, 'static')))
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
+
+//-------------------------------Setup the connection to the database to be used
 
 const sequelize = new Sequelize('Convoy_Commander', 'andrew_admin', 'COney123', {
     host: 'localhost',
@@ -23,7 +34,7 @@ const sequelize = new Sequelize('Convoy_Commander', 'andrew_admin', 'COney123', 
 })
 
 
-
+//-------------------------------------Start Of Tables
 
 const Soldier = sequelize.define('soldiers', {
     soldier_name: {
@@ -73,19 +84,60 @@ const Soldier = sequelize.define('soldiers', {
 })
 
 
+// app.get('/', (req,res) => {
+//       let soldiers_result
+//         Soldier.findAll().then(soldiers => {
+//           console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+//           soldiers_result=soldiers
+//           console.log(soldiers_result[1])
+//         })
+//     res.render('index', {result: soldiers_result})
+// })
 
-Soldier.sync().then(() => {
-    // Table created
-    Soldier.create({
-        soldier_name: 'BeckeyDenice',
-        soldier_rank: 'Private',
-        soldier_motto: "Gory Gory What a hell of a way to die",
-        soldier_age: 23
-    }).catch((err) => {
-        console.log('')
-        console.log('Create Error Has Occured', err.message)
-    })
+
+
+app.get('/', (req,res) => {
+    Soldier.sync().then(() => {
+        sequelize.query("SELECT * FROM soldiers",{ type: Sequelize.QueryTypes.SELECT }).then(function (soldiers) {
+              console.log(soldiers)
+              res.render('index', {result: soldiers})
+        }).catch((err) => {
+          console.log('query all has failed')
+            res.render('index', {error: 'query all has failed'})
+      })   
+    })  
+
 })
+//------------------------------Start of Routes
+
+app.post('/add_soldier', (req,res) => {
+  Soldier.sync().then(() => {
+      // Table created
+      Soldier.create({
+          soldier_name: req.body.name,
+          soldier_rank: req.body.rank,
+          soldier_motto: req.body.motto,
+          soldier_age: req.body.age
+      }).catch((err) => {
+          console.log('')
+          console.log('Create Error Has Occured', err.message)
+      })
+  })
+  res.redirect('/')
+})
+
+// Soldier.sync().then(() => {
+//     // Table created
+//     Soldier.create({
+//         soldier_name: 'BeckeyDenice',
+//         soldier_rank: 'Private',
+//         soldier_motto: "Gory Gory What a hell of a way to die",
+//         soldier_age: 23
+//     }).catch((err) => {
+//         console.log('')
+//         console.log('Create Error Has Occured', err.message)
+//     })
+// })
 
 //Find By ID
 //  Soldier.sync().then(() => {

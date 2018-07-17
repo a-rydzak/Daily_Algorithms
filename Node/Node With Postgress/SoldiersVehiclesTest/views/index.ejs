@@ -8,24 +8,28 @@
 	<table>
 	  <tr>
 	  	<th>Name<th>
-	    <th>Email</th>
+	    <th>Rank</th>
+	    <th>Motto</th>
+	    <th>Age</th>
 	  </tr>
-	  {#users}
-	  <tr>
-	    <td>{user_name}</td>
-	    <td>{user_email}</td>
-	  </tr>
-	 {/users}
+		<% for (let x in result) { %>
+			<tr>
+				<td><%= result[x].soldier_name %> </td>
+				<td><%= result[x].soldier_rank %> </td>
+				<td><%= result[x].soldier_motto %> </td>
+				<td><%= result[x].soldier_age %> </td>
+			</tr>
+		<% } %>
 	</table>
+
 
 <h4>Add A Soldier</h4>
 	<form action='/add_soldier' method='Post'>
-		Name:     <input type="text" name="user_name">
-		Email:    <input type="text" name="user_email">
-		Password: <input type="password" name="password">
-		Age:      <input type="number" name="age">
-		Motto:    <input type="text" name="age">
-				  <input type="submit" value='Add Soldier'>
+		Name:    <input type="text" name="name">
+		Rank:    <input type="text" name="rank">
+		Motto:   <input type="text" name="motto">
+		Age:     <input type="number" name="age">
+				 <input type="submit" value='Add Soldier'>
 	</form>
 
 
