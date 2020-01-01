@@ -66,7 +66,7 @@ const uniques = arry => new Set(arry);
 
 const arrayMe = set => Array.from(set);
 
-console.log(arrayMe(uniques(numberMe(filterme(new_str)))));
+// console.log(arrayMe(uniques(numberMe(filterme(new_str)))));
 
 // ------------------reducer
 const array1 = [1, 2, 3, 4];
@@ -96,18 +96,18 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 //-----------------------------------------------Async custom with promises
 
-// const two = (param, param2) => {
-//   const promise = new Promise((resolve, reject) => {
-//     if (param == false) {
-//       reject(33);
-//     }
-//     for (let x = 0; x < 1000000; x++) {
-//       continue;
-//     }
-//     resolve(param2);
-//   });
-//   return promise;
-// };
+const two = (param, param2) => {
+  const promise = new Promise((resolve, reject) => {
+    if (param == false) {
+      reject(33);
+    }
+    for (let x = 0; x < 1000000; x++) {
+      continue;
+    }
+    resolve(param2);
+  });
+  return promise;
+};
 
 // two(false)
 //   .then(value => {
@@ -121,41 +121,44 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 //   console.log(value);
 // });
 
-// console.log('1');
 
-// async function getaller() {
-//   await two(true, '1').then(value => {
-//     console.log(value);
-//   });
-//   await two(true, '2').then(value => {
-//     console.log(value);
-//   });
-//   console.log('3');
-// }
 
-// getaller();
+async function getaller() {
+  await two(true, '1').then(value => {
+    console.log(value);
+  });
+  await two(true, '2').then(value => {
+    console.log(value);
+  });
+  console.log('3');
+}
+
+getaller();
+console.log('First Step Non Blocking');
 //--------------------------------------------------Non blocking with callbacks and promises
 
-getter(bb8 => bb8).then(item => {
-  console.log(item);
-  console.log('Webpage Loaded with data');
-});
+// getter(bb8 => bb8).then(item => {
+//   console.log(item);
+//   console.log('Webpage Loaded with data');
+// });
 
-console.log('Non Blocking');
 
-function getter(cb) {
-  promise = new Promise((resolve, reject) => {
-    reader('input.txt', function(err, data) {
-      if (err) return reject(err);
-      resolve(cb(data));
-    });
-  });
-  return promise;
-}
 
-function reader(textFile, cb) {
-  for (let x = 0; x < 100000 * 3; x++) {
-    continue;
-  }
-  cb(false, 'all your data is here for the webpage');
-}
+// function getter(cb) {
+//   promise = new Promise((resolve, reject) => {
+//     reader('input.txt', function(err, data) {
+//       if (err) return reject(err);
+//       resolve(cb(data));
+//     });
+//   });
+//   return promise;
+// }
+
+// function reader(textFile, cb) {
+//   for (let x = 0; x < 100000 * 3; x++) {
+//     continue;
+//   }
+//   cb(false, 'all your data is here for the webpage');
+// }
+
+// console.log('Non Blocking');
