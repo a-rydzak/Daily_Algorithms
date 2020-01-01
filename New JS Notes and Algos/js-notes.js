@@ -31,10 +31,3 @@ rev2("its a brick")
 const t2 = performance.now()
 console.log(t2-t1)
 
-// callback
-
-const call = cb =>{
-    cb(33)
-}
-
-console.log(call(cb => cb))
