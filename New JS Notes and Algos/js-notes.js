@@ -31,3 +31,13 @@ rev2("its a brick")
 const t2 = performance.now()
 console.log(t2-t1)
 
+
+
+let profile = {name:"Andrew"}
+
+Object.defineProperty(profile, "age", {value:33, writable:false})
+//freezes all object mods
+Object.freeze()
+
+//seals some object so you cant add more properties but can manipulate the ones in place
+Object.seal()
