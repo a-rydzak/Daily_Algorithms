@@ -96,18 +96,18 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 //-----------------------------------------------Async custom with promises
 
-const two = (param, param2) => {
-  const promise = new Promise((resolve, reject) => {
-    if (param == false) {
-      reject(33);
-    }
-    for (let x = 0; x < 1000000; x++) {
-      continue;
-    }
-    resolve(param2);
-  });
-  return promise;
-};
+// const two = (param, param2) => {
+//   const promise = new Promise((resolve, reject) => {
+//     if (param == false) {
+//       reject(33);
+//     }
+//     for (let x = 0; x < 1000000; x++) {
+//       continue;
+//     }
+//     resolve(param2);
+//   });
+//   return promise;
+// };
 
 // two(false)
 //   .then(value => {
@@ -123,18 +123,18 @@ const two = (param, param2) => {
 
 
 
-async function getaller() {
-  await two(true, '1').then(value => {
-    console.log(value);
-  });
-  await two(true, '2').then(value => {
-    console.log(value);
-  });
-  console.log('3');
-}
+// async function getaller() {
+//   await two(true, '1').then(value => {
+//     console.log(value);
+//   });
+//   await two(true, '2').then(value => {
+//     console.log(value);
+//   });
+//   console.log('3');
+// }
 
-getaller();
-console.log('First Step Non Blocking');
+// getaller();
+// console.log('First Step Non Blocking');
 //--------------------------------------------------Non blocking with callbacks and promises
 
 // getter(bb8 => bb8).then(item => {
@@ -162,3 +162,23 @@ console.log('First Step Non Blocking');
 // }
 
 // console.log('Non Blocking');
+
+
+// O(n)
+function logAtLeast10(n) {
+  for (var i = 1; i <= Math.max(n, 10); i++) {
+      console.log(i);
+  }
+  return "Max"
+}
+
+// O(1)
+function logAtMost10(n) {
+  for (var i = 1; i <= Math.min(n, 10); i++) {
+      console.log(i);
+  }
+  return "Min"
+}
+
+console.log(logAtLeast10(1))
+console.log(logAtMost10(1))
