@@ -13,7 +13,8 @@ const M =[[1,2,3],
 	    [2,7,8],
 	    [7,9,4]
 ]
- 
+
+
  
 if (find(2, M) !== true){
 	throw new Error('Check Fail 1')
@@ -48,3 +49,14 @@ function find(num, matrix){
 
 
 
+const anna = (word1, word2) =>{
+
+	for(x in word1){
+		if(word1[x] !== word2[word2.length - x -1]){
+			return false
+		}
+	}
+	return true
+}
+
+console.log(anna('anna','anna'))
