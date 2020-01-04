@@ -41,3 +41,5 @@ Object.freeze()
 
 //seals some object so you cant add more properties but can manipulate the ones in place
 Object.seal()
+
+//
