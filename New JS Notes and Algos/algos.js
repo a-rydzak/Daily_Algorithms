@@ -47,4 +47,37 @@ const haveZeros= arr =>{
 
 }
 
-console.log(haveZeros([-4,-3, -2, -1, 0,1,2,3,10]))
+// console.log(haveZeros([-4,-3, -2, -1, 0,1,2,3,10]))
+
+
+const getUniques= arry =>{
+    return new Set(arry).size
+}
+
+// console.log(getUniques([1,2,3,3,3,4,5,6]))
+
+// aquire largest conc sum of 2 nums in an array given [9,1,2,3]
+// console.log([9,1], 10)
+
+const concecTwo = arr =>{
+    
+    let i = 0
+    let testArr = arr.splice(0,2)
+    let retArr = arr.splice(0,2)
+    let oldSum = retArr.reduce((a, b) => a + b,0)
+    
+
+    while(i<arr.length){
+        testArr = arr.splice(i,i+2)
+        let newSum = testArr.reduce((a, b) => a + b,0)
+        if(newSum>oldSum){
+            
+            retArr = testArr
+        }
+        i++
+    }
+    return retArr
+
+}
+
+console.log(concecTwo([101,1,20,1,22,1,1,9,99]))
