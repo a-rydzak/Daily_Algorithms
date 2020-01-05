@@ -106,7 +106,7 @@ function sameFrequency(num1, num2){
   
 // console.log(sameFrequency(34, 14))
 
-function areThereDuplicates() {
+function areThereDuplicatesOne() {
     let collection = {}
     for(let val in arguments){
       collection[arguments[val]] = (collection[arguments[val]] || 0) + 1
@@ -117,11 +117,41 @@ function areThereDuplicates() {
     return false;
   }
 // find all duplicates
-// function areThereDuplicates(...args) {
+function areThereDuplicatesTwo(...args) {
 
-//     const boole =  [...args].length === Array.from(new Set([...args])).length
-//     return !boole
-//     // good luck. (supply any arguments you deem necessary.)
-//   }
+    const boole =  [...args].length === Array.from(new Set([...args])).length
+    return !boole
+    // good luck. (supply any arguments you deem necessary.)
+  }
 
-  console.log(areThereDuplicates(1,2,3))
+  function areThereDuplicatesThree() {
+    return new Set(arguments).size !== arguments.length;
+  }
+//   console.log(areThereDuplicates(1,2,3))
+
+// does the average exist between a pair of numbers?
+function averagePair(arr, avg){
+    if(arr.length === 0) return false
+
+    let i = 0
+    let left = 0
+    let right = arr.length -1
+
+    while(i<arr.length){
+ 
+        let currentAvg = [arr[left],arr[right]].reduce((a,b)=>a+b)/2
+
+        if(avg === currentAvg) return true
+
+        if(currentAvg > avg) right--
+
+        if(currentAvg < avg) left++
+
+        // add whatever parameters you deem necessary - good luck!
+        i++
+    }
+    return false
+  }
+
+
+  console.log(averagePair([1,2,3,4,5,6,9], 7.5))
