@@ -80,4 +80,48 @@ const concecTwo = arr =>{
 
 }
 
-console.log(concecTwo([101,1,20,1,22,1,1,9,99]))
+// console.log(concecTwo([101,1,20,1,22,1,1,9,99]))
+
+// Do these numbers contain the same frequency???
+function sameFrequency(num1, num2){
+    
+    const dictOne = {}
+
+    const dictTwo = {}
+
+    for(let char of num1.toString()){
+
+        char in dictOne? dictOne[char]+=1: dictOne[char]=1
+    }
+
+    for(let char of num2.toString()){
+
+        char in dictTwo? dictTwo[char]+=1: dictTwo[char]=1
+    }
+
+    if(JSON.stringify(dictOne) === JSON.stringify(dictTwo)) return true
+
+    return false
+}
+  
+// console.log(sameFrequency(34, 14))
+
+function areThereDuplicates() {
+    let collection = {}
+    for(let val in arguments){
+      collection[arguments[val]] = (collection[arguments[val]] || 0) + 1
+    }
+    for(let key in collection){
+      if(collection[key] > 1) return true
+    }
+    return false;
+  }
+// find all duplicates
+// function areThereDuplicates(...args) {
+
+//     const boole =  [...args].length === Array.from(new Set([...args])).length
+//     return !boole
+//     // good luck. (supply any arguments you deem necessary.)
+//   }
+
+  console.log(areThereDuplicates(1,2,3))
