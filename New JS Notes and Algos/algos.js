@@ -125,6 +125,7 @@ function areThereDuplicatesTwo(...args) {
   }
 
   function areThereDuplicatesThree() {
+     
     return new Set(arguments).size !== arguments.length;
   }
 //   console.log(areThereDuplicates(1,2,3))
@@ -241,3 +242,53 @@ function findLongestSubstring(str) {
     }
     return longest;
   }
+
+  function anyEvent(arr){
+
+    if(arr.length === 0 ) return false
+    if (arr[arr.length-1] %2 !=0){
+        arr.pop()
+        return anyEvent(arr)
+    }
+
+    return true
+  }
+
+  // console.log(anyEvent([1,1,1,,1,1,1,1,1,1,1,1,1,1,1]))
+
+
+
+  // factoial recursive
+  const fact = num =>{
+    if(num ===1) return 1
+    return num * fact(num-1)
+  }
+
+  // console.log(fact(4))
+
+
+  // collect odds recursive with a helper!
+  const collectOdds=(...args)=>{
+    const collect = []
+    const a = args
+ 
+    const helpCollect=()=>{
+      if(a.length == 0) return collect
+      
+      if(a[a.length-1] %2 ===0){
+        collect.push(a.pop())
+      }
+      a.pop()
+      return helpCollect(a)
+    }
+
+    helpCollect()
+    return collect
+  }
+
+console.log(collectOdds(1,2,3,4))
+
+// let t =(...args) => {
+//   console.log(args)
+// }
+// t(1,2,3,4,5)
