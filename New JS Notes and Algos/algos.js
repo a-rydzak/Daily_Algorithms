@@ -286,9 +286,49 @@ function findLongestSubstring(str) {
     return collect
   }
 
-console.log(collectOdds(1,2,3,4))
 
-// let t =(...args) => {
-//   console.log(args)
-// }
-// t(1,2,3,4,5)
+  function power(base,powerTo){
+
+    if(powerTo === 0) return 1
+
+    return base * power(base,powerTo-1)
+    
+  }
+
+console.log('-------------------')
+function productOfArray(arr){
+    let size = arr.length -1
+    function helper(size){
+      if(size === 0) return 1
+      return  arr[size] * helper(size-=1)
+    }
+    return helper(size)
+  }
+
+// console.log(productOfArray([1,2,3,10,0]))
+
+
+function binarySearch(arr, elem){
+
+  let start = 0
+  let end = arr.length -1
+  let middle = Math.floor((start + end)/2)
+
+  if(arr[middle] === elem) return 'Yes'
+
+  while(arr[middle] !== elem && start<end){
+    
+    if(arr[middle] > elem){
+        end = middle-1
+    }
+    if(arr[middle] < elem){
+      start  = middle +1
+    }
+    middle =  Math.floor((start + end)/2)
+    if(arr[middle] === elem) return 'Yes'
+    console.log(`The start is ${start} and end is the ${end}`)
+  }
+  return 'Nope'
+}
+  
+console.log(binarySearch([1,2,,4,4,4,4,4,,4,4,3,4,5,6,7],22))
