@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 // const charCount = word =>{
 //     const word_dictionary = {}
 //     for(char of word){
@@ -331,4 +331,25 @@ function binarySearch(arr, elem){
   return 'Nope'
 }
   
-console.log(binarySearch([1,2,,4,4,4,4,4,,4,4,3,4,5,6,7],22))
+//console.log(binarySearch(['Jill','Jill', 'Julliet', 'Andrew', 'Andre'],'Andy'))
+
+//------------------regex in js
+// let re = /()/i;
+// let n = 'abcdegfuyijkl;sdhakljdashljkabc'.match(re);
+
+// // console.log(n === null)
+
+// var replace = "[rm]";
+// var rrr = new RegExp(replace,"g");
+// let gg = 'mystriing regex'.match(rrr)
+
+// console.log(gg)
+
+// let x = [1,2,3,4,5]
+
+// const gettr = () =>{
+//   for(let x of x){yield x} 
+// }
+
+// console.log(gettr())
+

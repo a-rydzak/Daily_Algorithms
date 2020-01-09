@@ -49,14 +49,5 @@ function find(num, matrix){
 
 
 
-const anna = (word1, word2) =>{
 
-	for(x in word1){
-		if(word1[x] !== word2[word2.length - x -1]){
-			return false
-		}
-	}
-	return true
-}
 
-console.log(anna('anna','anna'))

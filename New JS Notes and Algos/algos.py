@@ -10,6 +10,11 @@ def power(base, to):
 
 
 
-print(power(2,0))
+# print(power(2,0))
 
+(lambda x: print(x))('Andrew Loves Python')
 
+obj = {'Andrew':2222}
+
+for x,y in enumerate(obj):
+    print(x,y)
