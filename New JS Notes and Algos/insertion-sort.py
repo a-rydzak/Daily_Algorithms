@@ -3,20 +3,19 @@ def main():
 
 
 def insertion_sort(data): 
-  
-   for i in range(1,len(data)):
 
-       #element to be compared
-       current = data[i]
+    for i in range(1,len(data)):
 
-       #comparing the current element with the sorted portion and swapping
-       while i>0 and data[i-1]>current:
-           data[i] = data[i-1]
-           i = i-1
-           data[i] = current
+        current = data[i]
+
+    while i>0 and data[i-1]>current:
+        data[i] = data[i-1]
+        i = i-1
+        data[i] = current
+    print(data)
 
 
-   return data
+    return data
 
 if __name__ == '__main__':
     print(main())
