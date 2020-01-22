@@ -7,21 +7,21 @@ def main():
 
 def bubbleSort(data):
 
-    data_len = len(data)
+    steps = len(data) -1 
 
+    for i in range(steps):
 
-    for i in range(0,len(data)-1):
+        count = 0 # This is the optimization part
 
-        count = 0
-        
-        for j in range(0,data_len - 1 - i):
+        for j in range(steps):
     
             if data[j] > data[j+1]:
 
                 data[j], data[j+1]  = data[j+1], data[j]
-                count +=1
+                count += 1
 
         if count == 0:
+            # if array had already been sorted with no swaps  not needed
             return data
               
     return data
