@@ -1,4 +1,4 @@
-// 'use strict'
+'use strict'
 // const charCount = word =>{
 //     const word_dictionary = {}
 //     for(char of word){
@@ -353,3 +353,17 @@ function binarySearch(arr, elem){
 
 // console.log(gettr())
 
+//----------------------------------- Number compare for sorting in JS
+
+function numberCompare(num1, num2){
+	return num1 - num2
+}
+
+function stringLengthCompare(str1, str2){
+	return str1.length - str2.length 
+}
+console.log([55,1,2,3,4,99].sort())
+console.log([55,1,2,3,4,99].sort(numberCompare))
+
+
+console.log(['hjksdwhdskljhljkdsajklshd',' ','Andrew',].sort(stringLengthCompare))
