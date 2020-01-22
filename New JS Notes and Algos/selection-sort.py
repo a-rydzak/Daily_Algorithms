@@ -2,7 +2,8 @@ def main():
 
     return selection_sort([1, 4, 3, 2, 5])
 
-
+#  far worse than bubble sort,only better for minimizing the number of swaps needed
+#  bubble sort swaps a lot.  In case of memory use needs to be less
 def selection_sort(data):
 
     
