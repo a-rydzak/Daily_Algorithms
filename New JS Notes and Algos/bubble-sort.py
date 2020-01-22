@@ -9,14 +9,21 @@ def bubbleSort(data):
 
     data_len = len(data)
 
+
     for i in range(0,len(data)-1):
 
+        count = 0
+        
         for j in range(0,data_len - 1 - i):
-
+    
             if data[j] > data[j+1]:
 
                 data[j], data[j+1]  = data[j+1], data[j]
-                
+                count +=1
+
+        if count == 0:
+            return data
+              
     return data
 
 
