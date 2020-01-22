@@ -1,7 +1,7 @@
 def main():
 
     data = [10,9,8,7,6,5,4,3,2,1,0]
-    data = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 10]
+    data = [9, 8, 7, 11, 6, 5, 4, 3, 2, 1, 0, 10]
     return bubbleSort(data)
 
 
@@ -24,7 +24,6 @@ def bubbleSort(data):
             # if array had already been sorted with no swaps  not needed
             return data
               
-    return data
 
 
 if __name__ == "__main__":
