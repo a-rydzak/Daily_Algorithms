@@ -1,22 +1,21 @@
 def main():
-    return insertion_sort([4,5,6,1,2,7,8,10])
+    return insertion_sort([9,8,7,6,5,4,12,2,1])
 
+def insertion_sort(data):
 
-def insertion_sort(data): 
+    steps = len(data)
 
-    for i in range(1,len(data)):
+    for step in range(1,steps):
+        
+        current_val = data[step]
 
-        current = data[i]
+        while step > 0 and current_val < data[step-1]:
 
-        while i>0 and data[i-1]>current:
-            data[i] = data[i-1]
-            i = i-1
-            data[i] = current
-            print(data)
-
+            data[step-1], data[step] = current_val, data[step-1]
+            step-=1
 
     return data
 
+
 if __name__ == '__main__':
     print(main())
-
