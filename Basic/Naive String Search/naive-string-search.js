@@ -19,11 +19,9 @@ const includes=(long, short) =>{
             if(Short[j] !== Long[j+i]) {
                 break
             }
-            
             if(j === Short.length-1) count++
         }
     }
-
     return count
 }
 
